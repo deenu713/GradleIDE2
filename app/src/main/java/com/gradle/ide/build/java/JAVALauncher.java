@@ -43,7 +43,7 @@ public class JAVALauncher {
 
 		 check.getParentFile().mkdirs();
 		 */
-     		File nativeLibrary = new File(ApplicationLoader.applicationContext.getApplicationInfo().nativeLibraryDir + "/libaapt2.so");
+     		File nativeLibrary = new File(ApplicationLoader.applicationContext.getApplicationInfo().nativeLibraryDir + "/java.so");
 
         if (!nativeLibrary.exists()) {
             throw new IOException("AAPT2 binary not found");
