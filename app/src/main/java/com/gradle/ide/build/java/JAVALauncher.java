@@ -23,7 +23,9 @@ import com.gradle.ide.R;
 import android.widget.EditText;
 import com.gradle.ide.util.Prefs;
 import android.content.ClipboardManager;
-import android.content.ClipData; 
+import android.content.ClipData;
+import java.io.IOException;
+import com.gradle.ide.service.ApplicationLoader; 
 public class JAVALauncher {
 	
     private Context mContext;
@@ -32,7 +34,23 @@ public class JAVALauncher {
 
 	private Project mProject;
 
+	private File getAAPT2File() throws  IOException {
+        /*File check = new File(ApplicationLoader.applicationContext.getFilesDir() + "/temp/aapt2");
 
+		 if (check.exists()) {
+		 return check;
+		 }
+
+		 check.getParentFile().mkdirs();
+		 */
+     		File nativeLibrary = new File(ApplicationLoader.applicationContext.getApplicationInfo().nativeLibraryDir + "/libaapt2.so");
+
+        if (!nativeLibrary.exists()) {
+            throw new IOException("AAPT2 binary not found");
+        }
+		return nativeLibrary;
+    }
+	
 
     public JAVALauncher(Context context) {
         mContext = context.getApplicationContext();
@@ -88,10 +106,13 @@ public class JAVALauncher {
 
 	
     public Process launchJVM(List<String> args) throws Exception {
-        prepare();
+        
+			
+		prepare();
 
         List<String> arguments = new ArrayList<>();
-        arguments.add(mContext.getFilesDir() + "/openjdk-17/bin/java");
+      //  arguments.add(mContext.getFilesDir() + "/openjdk-17/bin/java");
+		arguments.add(getAAPT2File().getAbsolutePath());
         arguments.addAll(args);
         pb.command(arguments);
         return pb.start();
