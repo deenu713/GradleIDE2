@@ -54,9 +54,9 @@ public class GradleAssembleDebugTask extends Launcher {
 
 			File mProject = new File(clipboard.getText().toString());
 			Prefs.putString("mProject", mProject.getAbsolutePath());
-			//args.add("-jar");
-			//	args.add("/storage/emulated/0/Download/gradle-7.3.1/lib/gradle-launcher-7.3.1.jar");
-			args.add("-Djava.io.tmpdir=" + getContext().getCacheDir().getAbsolutePath());
+			args.add("-jar");
+				args.add("/storage/emulated/0/Download/gradle-7.3.1-bin/b47edjwz5j48avzx8xp2zpcd3/gradle-7.3.1/lib/gradle-launcher-7.3.1.jar");
+			/*args.add("-Djava.io.tmpdir=" + getContext().getCacheDir().getAbsolutePath());
 			args.add("-Xmx256m");
 			args.add("-Xms256m");
 			args.add("-Djava.awt.headless=true");
@@ -65,7 +65,7 @@ public class GradleAssembleDebugTask extends Launcher {
 			//	args.add(Environment.getExternalStorageDirectory().getAbsolutePath() + "/AppProjects/Test/gradle/wrapper/gradle-wrapper.jar");
 			args.add(getContext().getFilesDir().getAbsolutePath() + "/gradle/wrapper/gradle-wrapper.jar");
 			//args.add("gradle/wrapper/gradle-wrapper.jar");
-			args.add("org.gradle.wrapper.GradleWrapperMain"); 
+			args.add("org.gradle.wrapper.GradleWrapperMain"); */
 			args.add("assembleDebug");
 			try {
 				Process process = JavaLauncher.launchJVM(args);
