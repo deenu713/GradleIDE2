@@ -34,7 +34,8 @@
 		android:name=".service.ApplicationLoader"
 		android:requestLegacyExternalStorage="true"
 		android:extractNativeLibs="true">
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activities.MainActivity"
+         android:exported="true">
 
             <intent-filter>
 
@@ -46,9 +47,11 @@
 
         </activity>
 
-        <activity android:name=".activities.DebugActivity"/>
+        <activity android:name=".activities.DebugActivity"
+         android:exported="true"  />
 		<service
-		    android:name=".service.GradleService">
+		    android:name=".service.GradleService" 
+         android:exported="true">
 		</service>
     </application>
 
