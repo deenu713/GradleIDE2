@@ -63,8 +63,8 @@ public class GradleBuildTask extends Launcher {
 		args.add("-Djava.awt.headless=true");
 		args.add("-Dorg.gradle.appname=gradlew");
 		args.add("-classpath");
-		//	args.add(Environment.getExternalStorageDirectory().getAbsolutePath() + "/AppProjects/Test/gradle/wrapper/gradle-wrapper.jar");
-		args.add(getContext().getFilesDir().getAbsolutePath() + "/gradle/wrapper/gradle-wrapper.jar");
+      	args.add(Environment.getExternalStorageDirectory().getAbsolutePath() + "/AppProjects/Test/gradle/wrapper/gradle-wrapper.jar");
+	//	args.add(getContext().getFilesDir().getAbsolutePath() + "/gradle/wrapper/gradle-wrapper.jar");
 		//args.add("gradle/wrapper/gradle-wrapper.jar");
 		args.add("org.gradle.wrapper.GradleWrapperMain"); 
 		args.add("build");
